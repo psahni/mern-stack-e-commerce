@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Product from './Product';
 import { publicRequest } from '../axios';
 
 const Products = () => {
@@ -18,7 +19,9 @@ const Products = () => {
 
     return (
       <section>
-        {products.map((product) => <div key={product._id}>{product.name}</div>)}
+        {products.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
       </section>
     )
 }

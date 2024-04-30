@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  li {
+    @apply px-2 py-1.5 text-lg;
+  }
+  select {
+    @apply px-3 py-2 border m-3 rounded focus:outline-none;
+  }
+  /*
+  h1 {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+  h3 {
+    @apply text-xl md:text-2xl font-bold;
+  }
+  h4 {
+    @apply text-lg md:text-xl font-bold;
+  } */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@layer components {
+  .btn {
+    @apply px-4 py-2 border bg-gradient-to-r from-primary-200 to-primary-100 text-white rounded-md;
+  }
+  .btn--form {
+    @apply p-2 border bg-gradient-to-r from-primary-200 to-primary-100 text-white rounded-md;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@layer utilities {
+  .container {
+    @apply w-full max-w-6xl mx-auto px-4;
   }
 }
