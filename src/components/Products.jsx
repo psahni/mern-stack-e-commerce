@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Product from './Product';
-import { publicRequest } from '../axios';
+import { publicRequest } from '../axios_request';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
