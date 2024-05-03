@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Product from './Product';
 import { publicRequest } from '../axios_request';
 
@@ -22,6 +23,9 @@ const Products = () => {
         {products.map((product) => (
           <Product key={product._id} product={product} />
         ))}
+        <div>
+          <Link to='/cart'> Go To Cart</Link>
+        </div>
       </section>
     )
 }

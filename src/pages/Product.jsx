@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { publicRequest } from "axios_request";
+import { addProduct } from "store/cart"
 
 const SingleProduct = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
    const getProduct = async () => {
       try {
@@ -16,6 +19,11 @@ const SingleProduct = () => {
       }
    }
 
+   const addToCartHandler = () => {
+      console.log("addToCartHandler()")
+      dispatch(addProduct({ product }));
+   }
+
    useEffect(() => {
     getProduct()
    }, [])
@@ -23,7 +31,13 @@ const SingleProduct = () => {
    return (
     <>
       <div>
-       { product.name }
+       <div>
+        { product.name } : Rs{product.price}
+       </div>
+       <button  onClick={addToCartHandler} className='cursor-pointer'>Add To Cart</button>
+        <div>
+          <Link to='/cart'> Go To Cart</Link>
+        </div>
       </div>
     </>
    )
